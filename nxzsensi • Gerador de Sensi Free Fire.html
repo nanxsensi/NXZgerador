@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>nxzsensi • Gerador de Sensi Free Fire</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#090613;--card:#0f0a1f;--line:#2a2050;--p:#8b5cf6;--p2:#a78bfa;--tx:#f1ecff;--mut:#9b8fc0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(70% 40% at 50% 0,#4c1d9566,transparent);}
+.bg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(#8b5cf614 1px,transparent 1px),linear-gradient(90deg,#8b5cf614 1px,transparent 1px);background-size:34px 34px;animation:g 12s linear infinite}
+@keyframes g{to{background-position:34px 34px}}
+.wrap{max-width:560px;margin:0 auto;padding:22px 14px 40px}
+header{text-align:center;margin-bottom:16px}
+.ver{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:99px;border:1px solid #4c3a96;background:#1b1240;color:var(--p2);font-size:11px;font-weight:700;letter-spacing:.6px}
+h1{margin:14px 0 6px;font-size:44px;font-weight:800;letter-spacing:-1px;color:var(--p);text-shadow:0 0 28px #8b5cf6aa}
+.sub{color:var(--mut);font-size:14px;line-height:1.4;max-width:380px;margin:0 auto}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:5px;border-radius:14px;border:1px solid var(--line);background:#0c0819;margin:16px 0 12px}
+.tab{padding:13px;border:0;border-radius:10px;background:transparent;color:var(--mut);font:600 14px Inter,sans-serif;cursor:pointer;display:flex;gap:8px;justify-content:center;align-items:center;transition:.2s}
+.tab.on{background:var(--p);color:#fff;box-shadow:0 0 20px #8b5cf666}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.badge{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 4px;text-align:center;font-size:12px;color:var(--mut)}
+.badge svg{display:block;margin:0 auto 4px;color:var(--p);font-size:15px}
+.sec{display:flex;align-items:center;gap:8px;margin:22px 0 10px;font-size:13px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+.num{width:22px;height:22px;border-radius:50%;background:var(--p);display:grid;place-items:center;font-size:12px}
+.sec svg{color:var(--p)}
+.g{display:grid;gap:8px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.o{border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:12px;padding:14px 10px;font:500 14px Inter,sans-serif;cursor:pointer;text-align:center;transition:.15s}
+.o:active{transform:scale(.97)}
+.o.on{border-color:var(--p);background:#241650;box-shadow:0 0 18px #8b5cf655,inset 0 0 0 1px var(--p)}
+.o.t{display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:700;padding:16px 6px}
+.o.t svg{font-size:20px;color:var(--p2)}.o.t small{font-weight:400;color:var(--mut);font-size:11px;line-height:1.25}
+.o.pb{text-align:left;padding:13px}.o.pb b{display:block;font-size:14px}.o.pb small{display:block;color:var(--mut);font-size:12px;margin:3px 0 9px}
+.pill{display:inline-flex;gap:5px;align-items:center;padding:4px 8px;border-radius:99px;background:#1d1445;border:1px solid #3b2d7a;font-size:10px;font-weight:800;letter-spacing:.5px;color:var(--p2)}
+.go{width:100%;margin-top:22px;padding:17px;border:0;border-radius:14px;background:linear-gradient(90deg,#6d3be8,var(--p));color:#fff;font:800 15px Inter,sans-serif;letter-spacing:.8px;cursor:pointer;box-shadow:0 0 26px #8b5cf666;transition:.2s}
+.go:disabled{opacity:.4;box-shadow:none;cursor:default}
+.res{margin-top:20px;border:1px solid var(--p);background:linear-gradient(160deg,#1a1040,var(--card));border-radius:16px;padding:18px;box-shadow:0 0 36px #8b5cf633;animation:in .4s}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.res h3{margin:0 0 2px;font-size:20px}.res .m{color:var(--mut);font-size:13px;margin-bottom:12px}
+.s{margin:11px 0}.s .l{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:5px}.s .l b{color:var(--p2);font-size:18px}
+.bar{height:8px;border-radius:9px;background:#1d1445;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6d3be8,var(--p2));box-shadow:0 0 10px var(--p);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.dpi{margin-top:14px;padding:12px;border-radius:12px;border:1px dashed #4c3a96;background:#150d33;font-size:13px;line-height:1.45;color:var(--mut)}
+.dpi b{color:var(--tx)}
+.row{display:flex;gap:8px;margin-top:14px}
+.b2{flex:1;padding:13px;border-radius:12px;border:1px solid var(--line);background:#0c0819;color:var(--tx);font:700 13px Inter,sans-serif;cursor:pointer}
+.b2.f{background:var(--p);border-color:var(--p)}
+.pg{padding:16px;border:1px solid var(--line);background:var(--card);border-radius:14px;margin-bottom:12px}
+.pg .h{display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:10px}.pg .h span:last-child{color:var(--p2)}
+.grp{padding:16px;border:1px solid var(--line);background:var(--card);border-radius:14px;margin-bottom:12px}
+.grp h4{margin:0 0 12px;display:flex;gap:8px;align-items:center;font-size:13px;letter-spacing:.7px;text-transform:uppercase}.grp h4 svg{color:var(--p)}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:14px;line-height:1.4;cursor:pointer}
+.bx{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #3a2d70;display:grid;place-items:center;transition:.2s;color:transparent;font-size:12px}
+.ck.on{color:var(--mut)}.ck.on .bx{background:var(--p);border-color:var(--p);color:#fff}
+.dn{display:none;text-align:center;padding:14px;border-radius:12px;background:#241650;border:1px solid var(--p);color:var(--p2);font-weight:800;margin-top:6px}
+footer{text-align:center;color:#6f6496;font-size:12px;margin-top:34px;line-height:1.5}
+.pb .pill{font-size:9px;letter-spacing:.3px;padding:4px 7px}
+.more{width:100%;margin-top:8px;padding:12px;border-radius:12px;border:1px dashed #4c3a96;background:transparent;color:var(--p2);font:700 13px Inter,sans-serif;cursor:pointer}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+<header>
+  <div class="ver" id="v"></div>
+  <h1>nxzsensi</h1>
+  <p class="sub">Sensi personalizada e precisa para o seu celular, com DPI incluso.</p>
+</header>
+<div class="tabs"><button class="tab on" data-t="a" id="ta"></button><button class="tab" data-t="b" id="tb"></button></div>
+<div class="badges" id="bd"></div>
+
+<section id="A">
+  <div class="sec"><span class="num">1</span><span id="i1"></span>Marca do celular</div><div class="g g2" id="q1"></div>
+  <div class="sec"><span class="num">2</span><span id="i2"></span>Tipo de sensi</div><div class="g g3" id="q2"></div>
+  <div class="sec"><span class="num">3</span><span id="i3"></span>Maior problema na sua sensi</div><div class="g g2" id="q3"></div>
+  <div class="sec"><span class="num">4</span><span id="i4"></span>Quantos dedos você usa (HUD)</div><div class="g g3" id="q4"></div>
+  <div class="sec"><span class="num">5</span><span id="i5"></span>Estilo de jogo</div><div class="g g3" id="q6"></div>
+  <button class="more" id="mr">+ Mais estilos</button>
+  <div class="g g3" id="q6b" style="margin-top:8px" hidden></div>
+  <div class="sec"><span class="num">6</span><span id="i6"></span>Versão do jogo</div><div class="g g2" id="q5"></div>
+  <button class="go" id="go" disabled>COMPLETE AS ETAPAS ACIMA</button>
+  <div id="out"></div>
+</section>
+
+<section id="B" hidden>
+  <div class="pg"><div class="h"><span>Seu progresso de otimização</span><span id="pc">0%</span></div><div class="bar"><i id="pb"></i></div></div>
+  <div id="gr"></div>
+  <div class="dn" id="dn">Tudo pronto! Seu Free Fire está otimizado.</div>
+</section>
+
+<footer>nxzsensi © 2026 · Ferramenta independente, sem vínculo com a Garena.</footer>
+</div>
+<script>
+const P={
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+check:'<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
+bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/>',
+target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
+phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+gauge:'<path d="M4 16a8 8 0 1116 0"/><path d="M12 16l4-5"/>',
+hand:'<path d="M8 13V5a1.5 1.5 0 013 0v6M11 11V4a1.5 1.5 0 013 0v7M14 11V6a1.5 1.5 0 013 0v8a6 6 0 01-6 6c-3 0-4-2-6-5l-1-2a1.5 1.5 0 012-2l2 2"/>',
+pad:'<rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18 14h.01"/>',
+chip:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+wifi:'<path d="M2 9a15 15 0 0120 0M5 13a10 10 0 0114 0M8.5 16.5a5 5 0 017 0M12 20h.01"/>',
+batt:'<rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/>',
+temp:'<path d="M14 14.8V5a2 2 0 00-4 0v9.8a4 4 0 104 0z"/>',
+mon:'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'};
+const ic=n=>`<svg class="i" viewBox="0 0 24 24">${P[n]}</svg>`;
+const $=id=>document.getElementById(id);
+
+$("v").innerHTML=ic("shield")+" VERIFICADO POR +10 MIL JOGADORES";
+$("ta").innerHTML=ic("target")+" Gerador";$("tb").innerHTML=ic("gauge")+" Desempenho";
+$("bd").innerHTML=[["lock","100% seguro"],["check","Sem anti-ban"],["bolt","Grátis"]].map(a=>`<div class="badge">${ic(a[0])}${a[1]}</div>`).join("");
+["phone","bolt","target","hand","pad","mon"].forEach((n,x)=>$("i"+(x+1)).innerHTML=ic(n));
+
+const BR=["Samsung","Xiaomi / Poco","Motorola","iPhone","Realme","Oppo","Vivo","Infinix","Tecno","Asus ROG","Outra marca"];
+const TP=[["Alta","Mira rápida e agressiva","bolt"],["Padrão","Velocidade com controle","target"],["Baixa","Mira estável, sem tremer","shield"]];
+const PB=[["Mira não sobe","Capa fica no peito/pé","ALTA"],["Mira passa da cabeça","Sobe demais e erra","BAIXA"],["Mira tremendo","Instável no spray","PADRÃO"],["Giro lento","Demora para virar","ALTA"],["Descontrolada","Tudo muito rápido","BAIXA"],["Só quero melhorar","Ajuste fino geral","PADRÃO"]];
+const S={};
+$("q1").innerHTML=BR.map(b=>`<button class="o" data-k="marca" data-v="${b}">${b}</button>`).join("");
+$("q2").innerHTML=TP.map(t=>`<button class="o t" data-k="tipo" data-v="${t[0]}">${ic(t[2])}${t[0]}<small>${t[1]}</small></button>`).join("");
+$("q3").innerHTML=PB.map(p=>`<button class="o pb" data-k="prob" data-v="${p[0]}"><b>${p[0]}</b><small>${p[1]}</small><span class="pill">RECOMENDO SENSI ${p[2]}</span></button>`).join("");
+$("q4").innerHTML=["2","3","4"].map(d=>`<button class="o" data-k="dedos" data-v="${d}">${d} dedos</button>`).join("");
+$("q5").innerHTML=["Free Fire","Free Fire MAX"].map(d=>`<button class="o" data-k="versao" data-v="${d}">${d}</button>`).join("");
+const ES=[["Instaplayer","Puxada rápida, tiro instantâneo"],["Freestyle","Movimento livre, mira fluida"],["Pulante Player","Pula e atira no ar"]];
+const EX=[["Pro Player","Joga no alto nível, com mira precisa"],["Tático","Joga em equipe, com calma"],["Suporte","Dá apoio e segura o time"]];
+const eb=e=>`<button class="o t" data-k="estilo" data-v="${e[0]}">${e[0]}<small>${e[1]}</small></button>`;
+$("q6").innerHTML=ES.map(eb).join("");$("q6b").innerHTML=EX.map(eb).join("");
+$("mr").onclick=()=>{const h=$("q6b").hidden;$("q6b").hidden=!h;$("mr").textContent=h?"− Menos estilos":"+ Mais estilos";};
+
+document.querySelectorAll(".o").forEach(b=>b.onclick=()=>{
+  S[b.dataset.k]=b.dataset.v;
+  document.querySelectorAll(`.o[data-k="${b.dataset.k}"]`).forEach(x=>x.classList.toggle("on",x===b));
+  const ok=["marca","tipo","prob","dedos","estilo","versao"].every(k=>S[k]);
+  $("go").disabled=!ok;$("go").textContent=ok?"GERAR MINHA SENSI":"COMPLETE AS ETAPAS ACIMA";
+});
+
+const NM=["Geral","Ponto Vermelho","Mira 2x","Mira 4x","Mira AWM","Olhadinha"];
+// Faixas aleatórias [mín,máx] por tipo, na ordem de NM (escala 0-200)
+const FAIXAS={
+  Alta:[[170,200],[165,200],[165,200],[165,200],[80,100],[80,100]],
+  "Padrão":[[160,175],[160,175],[100,200],[100,200],[80,100],[80,100]],
+  Baixa:[[140,160],[135,160],[135,160],[135,160],[60,69],[60,69]]};
+const DPIF={Alta:[700,900],"Padrão":[500,611],Baixa:[400,500]};
+const FIRE=[42,60];
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+function calc(){return FAIXAS[S.tipo].map(f=>rnd(f[0],f[1]));}
+function gerar(){
+  const v=calc(),fz=rnd(FIRE[0],FIRE[1]),dp=rnd(DPIF[S.tipo][0],DPIF[S.tipo][1]),ios=S.marca==="iPhone";
+  $("out").innerHTML=`<div class="res"><h3>Sua sensi está pronta</h3>
+  <div class="m">${S.versao} · ${S.marca} · HUD ${S.dedos} dedos · ${S.estilo} · Sensi ${S.tipo.toLowerCase()}</div>
+  ${NM.map((n,x)=>`<div class="s"><div class="l"><span>${n}</span><b>${v[x]}</b></div><div class="bar"><i data-w="${v[x]/2}"></i></div></div>`).join("")}
+  <div class="s"><div class="l"><span>Tamanho do botão de atirar</span><b>${fz}%</b></div><div class="bar"><i data-w="${fz}"></i></div></div>
+  <div class="dpi">${ios?"<b>DPI:</b> o iPhone não permite alterar o DPI. Use apenas a sensi acima.":`<b>DPI sugerido: ${dp}</b> (Menor largura, nas Opções do desenvolvedor). Ajuste é opcional: anote o valor original antes de mudar.`}</div>
+  <button class="go" id="ff" style="margin-top:14px">ABRIR ${S.versao.toUpperCase()}</button><p class="dpi" id="ffm" hidden></p>
+  <div class="row"><button class="b2 f" id="cp">COPIAR SENSI</button><button class="b2" id="rg">GERAR OUTRA</button><button class="b2" id="rf">REFAZER</button></div></div>`;
+  requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll(".bar i[data-w]").forEach(e=>e.style.width=e.dataset.w+"%"),60));
+  $("out").scrollIntoView({behavior:"smooth",block:"start"});
+  $("cp").onclick=e=>{
+    const t=`Sensi nxzsensi (${S.estilo}, ${S.tipo}, HUD ${S.dedos} dedos)\n`+NM.map((n,x)=>n+": "+v[x]).join("\n")+"\nBotão de atirar: "+fz+"%"+(ios?"":"\nDPI: "+dp);
+    const f=m=>e.target.textContent=m;
+    try{navigator.clipboard.writeText(t).then(()=>f("COPIADO!")).catch(()=>f("NÃO FOI POSSÍVEL COPIAR"));}catch(_){f("NÃO FOI POSSÍVEL COPIAR");}
+  };
+  $("rg").onclick=gerar;
+  $("ff").onclick=()=>{
+    const m=$("ffm"),pkg=S.versao==="Free Fire MAX"?"com.dts.freefiremax":"com.dts.freefireth";
+    const play="https://play.google.com/store/apps/details?id="+pkg;
+    if(!/android/i.test(navigator.userAgent)){m.hidden=false;m.textContent="Abrir direto funciona só em celular Android. Abra o jogo manualmente no seu aparelho.";return;}
+    const u="intent://#Intent;package="+pkg+";S.browser_fallback_url="+encodeURIComponent(play)+";end";
+    let left=false;const h=()=>{if(document.hidden)left=true;};
+    document.addEventListener("visibilitychange",h);
+    const a=document.createElement("a");a.href=u;a.target="_top";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>{
+      document.removeEventListener("visibilitychange",h);
+      if(!left){m.hidden=false;m.innerHTML='Não abriu? Abra esta página pelo Chrome ou <a href="'+play+'" target="_blank" rel="noopener" style="color:var(--p2);font-weight:700">toque aqui para ir à Play Store</a> e depois em "Abrir".';}
+    },1800);
+  };
+  $("rf").onclick=()=>{Object.keys(S).forEach(k=>delete S[k]);document.querySelectorAll(".o").forEach(x=>x.classList.remove("on"));$("out").innerHTML="";$("go").disabled=true;$("go").textContent="COMPLETE AS ETAPAS ACIMA";window.scrollTo({top:0,behavior:"smooth"});};
+}
+$("go").onclick=gerar;
+
+const G=[
+["mon","Gráficos do jogo",["Gráficos em 'Suave' e FPS em 'Alto' para estabilidade","Desative sombras e alta resolução se o celular esquentar","Mantenha o jogo atualizado e limpe o cache pela loja"]],
+["chip","Opções de desenvolvedor",["Ative tocando 7x em 'Número da versão' (Sobre o telefone)","Reduza as escalas de animação para 0.5x","Ative 'Forçar 4x MSAA' apenas em celulares fortes"]],
+["wifi","Conexão e ping",["Prefira Wi-Fi 5 GHz e fique perto do roteador","Feche downloads e streaming antes da partida","Use DNS 1.1.1.1 ou 8.8.8.8 em DNS privado"]],
+["batt","Bateria e sistema",["Desative economia de energia durante o jogo","Ative o Modo Jogo / Game Booster do celular","Feche apps em segundo plano antes de abrir o FF","Mantenha pelo menos 3 GB de armazenamento livre"]],
+["temp","Temperatura",["Tire a capinha se o celular esquentar muito","Evite jogar carregando no cabo","Jogue em local ventilado, longe do sol"]]];
+$("gr").innerHTML=G.map(g=>`<div class="grp"><h4>${ic(g[0])}${g[1]}</h4>${g[2].map(t=>`<div class="ck"><span class="bx">✓</span><span>${t}</span></div>`).join("")}</div>`).join("");
+const cks=[...document.querySelectorAll(".ck")];
+cks.forEach(c=>c.onclick=()=>{
+  c.classList.toggle("on");
+  const n=cks.filter(x=>x.classList.contains("on")).length,p=Math.round(n/cks.length*100);
+  $("pc").textContent=p+"%";$("pb").style.width=p+"%";$("dn").style.display=n===cks.length?"block":"none";
+});
+
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));
+  $("A").hidden=t.dataset.t!=="a";$("B").hidden=t.dataset.t!=="b";
+});
+</script>
+</body>
+</html>
